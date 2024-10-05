@@ -1,0 +1,27 @@
+{
+  "name": "groupon_official_clone---backend-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NKhairnar203/Groupon_Official_Clone---Backend-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NKhairnar203/Groupon_Official_Clone---Backend-/issues"
+  },
+  "homepage": "https://github.com/NKhairnar203/Groupon_Official_Clone---Backend-#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.7.0",
+    "nodemon": "^3.1.7"
+  }
+}
