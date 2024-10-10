@@ -4,7 +4,7 @@ const DealsSchema = new mongoose.Schema(
   {
     ownerID:{
       type: mongoose.Schema.Types.ObjectId,
-      ref:"Admin"
+      ref:"User"
     },
     name: { type: String, required: true, trim: true },
     description: { type: String, required: true },

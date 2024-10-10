@@ -8,16 +8,16 @@ const {
   getCategory,
   getAllCategories,
 } = require("../controllers/category.controller");
-const  verifyAdmin  = require("../middlewares/adminAuth.middleware");
+const adminCheck = require("../middlewares/adminCheck.middleware");
 
 // Add a new category (admin only)
-Category.post("/", verifyAdmin, addCategory);
+Category.post("/", adminCheck, addCategory);
 
 // Update a category (admin only)
-Category.put("/:id",  verifyAdmin, updateCategory);
+Category.put("/:id",  adminCheck, updateCategory);
 
 // Delete a category (admin only)
-Category.delete("/:id",  verifyAdmin, deleteCategory);
+Category.delete("/:id", adminCheck, deleteCategory);
 
 // Get a specific category by ID
 Category.get("/:id", getCategory);

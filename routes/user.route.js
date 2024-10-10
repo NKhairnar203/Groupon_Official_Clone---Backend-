@@ -7,9 +7,10 @@ const {
   loginUser,
   getUser,
   updateUser,
+  getAllUser,
 } = require("../controllers/users.controller");
 const verifyTokenForUser = require("../middlewares/usersAuth.middleware");
-const verifyAdmin = require("../middlewares/adminAuth.middleware");
+const adminCheck = require("../middlewares/adminCheck.middleware");
 
 // Register a new user
 UserRoute.post("/register", registerUser);
@@ -18,9 +19,12 @@ UserRoute.post("/register", registerUser);
 UserRoute.post("/login", loginUser);
 
 // Get user details (protected route)
-UserRoute.get("/:id", [verifyTokenForUser, verifyAdmin], getUser);
+UserRoute.get("/:id", [verifyTokenForUser, adminCheck], getUser);
+
+
+UserRoute.get("/", [verifyTokenForUser, adminCheck], getAllUser);
 
 // Update user details (protected route)
-UserRoute.put("/:id", [verifyTokenForUser, verifyAdmin], updateUser);
+UserRoute.put("/:id", [verifyTokenForUser, adminCheck], updateUser);
 
 module.exports = UserRoute;

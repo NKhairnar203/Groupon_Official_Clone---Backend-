@@ -18,14 +18,15 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    role: {
-      type: String,
-      default: "customer",
-    },
     cart: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Cart", // Reference to the Cart model
     },
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
+
     createdAt: {
       type: Date,
       default: Date.now,

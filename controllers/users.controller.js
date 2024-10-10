@@ -36,7 +36,7 @@ exports.loginUser = async (req, res) => {
 
     // Generate a JWT token
     const token = jwt.sign(
-      { userId: user._id, role: user.role },
+      { userId: user._id, isAdmin: user.isAdmin },
       process.env.USER_SECRET,
       { expiresIn: "1h" }
     );
@@ -50,6 +50,19 @@ exports.loginUser = async (req, res) => {
 exports.getUser = async (req, res) => {
   try {
     const user = await User.findById(req.params.id).select("-password"); // Exclude password from the response
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+};
+
+
+exports.getAllUser = async (req, res) => {
+  try {
+    const user = await User.find().select("-password"); // Exclude password from the response
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
