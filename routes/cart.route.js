@@ -9,8 +9,8 @@ const {
 } = require("../controllers/cart.controller");
 const verifyToken = require("../middlewares/usersAuth.middleware");
 
-// Add an item to the cart
-CartRouter.post("/add", verifyToken, addItemToCart);
+// Add an item to the cart:    verifyToken,
+CartRouter.post("/", addItemToCart);
 
 // Update the quantity of an item in the cart
 CartRouter.put("/update/:itemId", verifyToken, updateCartItem);

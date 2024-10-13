@@ -11,7 +11,7 @@ const {
 const adminCheck = require("../middlewares/adminCheck.middleware");
 
 // Add a new category (admin only)
-Category.post("/", adminCheck, addCategory);
+Category.post("/",  addCategory);
 
 // Update a category (admin only)
 Category.put("/:id",  adminCheck, updateCategory);

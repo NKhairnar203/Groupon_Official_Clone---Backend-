@@ -1,16 +1,18 @@
 const Deal = require("../models/deals.model");
 
 const CreateDeal = async (req, res) => {
-  const { name, description, price, category, stock, images } = req.body;
+  const { name, description, price, category, stock, image, address } =
+    req.body;
 
   try {
     const deal = new Deal({
       name,
       description,
       price,
-      images,
+      image,
       category,
       stock,
+      address,
     });
     await deal.save();
     res.status(201).json(deal);

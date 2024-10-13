@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 
 const DealsSchema = new mongoose.Schema(
   {
-    ownerID:{
+    ownerID: {
       type: mongoose.Schema.Types.ObjectId,
-      ref:"User"
+      ref: "User",
     },
     name: { type: String, required: true, trim: true },
     description: { type: String, required: true },
@@ -14,10 +14,14 @@ const DealsSchema = new mongoose.Schema(
       ref: "Category",
       required: true,
     },
+    address: {
+      type: String,
+      required: true,
+    },
     stock: { type: Number, required: true, min: 0 }, // Quantity in stock
-    images: [{ type: String }], // Array of image URLs
+    image: { type: String }, // Array of image URLs
     ratings: { type: Number, default: 0, min: 0, max: 5 },
-    reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: "Review" },],
+    reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: "Review" }],
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
   },

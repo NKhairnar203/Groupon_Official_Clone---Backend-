@@ -19,7 +19,7 @@ UserRoute.post("/register", registerUser);
 UserRoute.post("/login", loginUser);
 
 // Get user details (protected route)
-UserRoute.get("/:id", [verifyTokenForUser, adminCheck], getUser);
+UserRoute.get("/:id", [verifyTokenForUser], getUser);
 
 
 UserRoute.get("/", [verifyTokenForUser, adminCheck], getAllUser);
