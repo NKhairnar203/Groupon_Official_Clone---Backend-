@@ -4,6 +4,7 @@ const {
   GetDeals,
   UpdateDeal,
   DeleleDeal,
+  findByID,
 } = require("../controllers/deals.controller");
 const DealsRoute = express.Router();
 
@@ -11,6 +12,9 @@ const DealsRoute = express.Router();
 DealsRoute.post("/", CreateDeal);
 // get all deals
 DealsRoute.get("/", GetDeals);
+
+// find by Id:
+DealsRoute.get("/:id", findByID);
 
 // update route
 DealsRoute.put("/:id", UpdateDeal);

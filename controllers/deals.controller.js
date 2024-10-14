@@ -21,6 +21,17 @@ const CreateDeal = async (req, res) => {
   }
 };
 
+const findByID = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const deal = await Deal.findOne({ _id: id });
+    res.status(201).json(deal);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+};
+
 const GetDeals = async (req, res) => {
   const { search, category, priceMin, priceMax, sortBy, order } = req.query;
   try {
@@ -87,4 +98,4 @@ const DeleleDeal = async (req, res) => {
   }
 };
 
-module.exports = { CreateDeal, GetDeals, UpdateDeal, DeleleDeal };
+module.exports = { CreateDeal, GetDeals, UpdateDeal, DeleleDeal, findByID };

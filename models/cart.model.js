@@ -7,7 +7,6 @@ const CartItemSchema = new mongoose.Schema({
     ref: "Deal",
     required: true,
   },
-  quantity: { type: Number, required: true, min: 1 },
   price: { type: Number, required: true }, // Price at the time of adding to cart
 });
 
