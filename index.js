@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 
 app.use(
   cors({
-    origin: "http://127.0.0.1:5173", // Allow only this origin
+    origin: "https://groupon-official.netlify.app", // Allow only this origin
     methods: ["GET", "POST", "PUT", "DELETE"], // Allow specific HTTP methods
     allowedHeaders: ["Content-Type", "Authorization"], // Allow specific headers
     credentials: true, // Allow cookies to be sent with requests
